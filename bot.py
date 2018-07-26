@@ -10,6 +10,7 @@ with open('config.ini','r') as config:
   TW_ACCESS_KEY = tokens[2].rstrip()
   TW_ACCESS_SECRET = tokens[3].rstrip()
 
+# Logs you into twitter and returns a Twitter API object that you'll need for all Twitter functions
 def authenticate_twitter():
   print('Authenticating twitter...')
   auth = tweepy.OAuthHandler(TW_CONSUMER_KEY, TW_CONSUMER_SECRET)
@@ -22,7 +23,7 @@ def authenticate_twitter():
 
   # If your bot replies to tweets you may want to record that you've replied to a paticular tweet in a local log so you don't reply to that tweet again
 def record_replied_to(tweet):
-    with open(replied_to, 'a') as f:
+    with open(REPLIED_TO, 'a') as f:
         f.write(str(tweet.id) + '\n')
 
   # Checks your logs to see if you've already replied to this tweet.
@@ -34,8 +35,11 @@ def is_replied_to(tweet):
             return False
 
 
+# 
+#
 # Define some functions here to do whatever the heck it is your bot is supposed to do.
-
+#
+#
 
 def tweet(twitter, text):
   #you can tweet with a photo or just text by using one of the two following lines
