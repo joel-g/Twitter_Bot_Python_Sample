@@ -19,7 +19,12 @@ def authenticate_twitter():
 
 # Define some functions here to do whatever the heck it is your bot is supposed to do.
 
-
+def tweet(twitter, text):
+  #you can tweet with a photo
+  twitter.update_with_media("photo.png", text)
+  
+  #you can tweet just text
+  twitter.update_status(text)
 
 
 
